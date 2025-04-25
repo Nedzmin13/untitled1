@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://www.codened.it/</loc>
+        <lastmod>2025-04-25</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Pagina Intro Servizi -->
+    <url>
+        <loc>https://www.codened.it/servizi</loc>
+        <lastmod>2025-04-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Pagina Listino Web -->
+    <url>
+        <loc>https://www.codened.it/servizi/siti-web</loc>
+        <lastmod>2025-04-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Pagina Listino Marketing -->
+    <url>
+        <loc>https://www.codened.it/servizi/marketing</loc>
+        <lastmod>2025-04-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Pagina Portfolio -->
+    <url>
+        <loc>https://www.codened.it/portfolio</loc>
+        <lastmod>2025-04-25</lastmod> <!-- Aggiornare quando si aggiungono progetti -->
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Pagina Perché Scegliere Me -->
+    <url>
+        <loc>https://www.codened.it/perche-scegliere-me</loc>
+        <lastmod>2025-04-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Pagina Contatti -->
+    <url>
+        <loc>https://www.codened.it/contatti</loc>
+        <lastmod>2025-04-25</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Pagina Privacy Policy -->
+    <url>
+        <loc>https://www.codened.it/privacy-policy</loc>
+        <lastmod>2025-04-25</lastmod> <!-- Aggiorna se modifichi la policy -->
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Pagina Cookie Policy -->
+    <url>
+        <loc>https://www.codened.it/cookie-policy</loc>
+        <lastmod>2025-04-25</lastmod> <!-- Aggiorna se modifichi la policy -->
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+
+
+</urlset>
