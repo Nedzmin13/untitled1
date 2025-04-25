@@ -4,7 +4,7 @@ import './Services.css';
 import sitowebpersonale from '../assets/sito-web.png'
 import sitoecommerce from '../assets/e-commerce.png';
 import webappImg from '../assets/webApp.jpg'
-import digitalMarketing from '../assets/digitalMarketing.jpg'
+import digitalMarketing from '../assets/digitalmarketing.jpg'
 import manutenzioneWeb from '../assets/manutenzioneWeb.jpg'
 import ottimizzazione from '../assets/ottimizzazione.png'
 
