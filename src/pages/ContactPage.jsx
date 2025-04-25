@@ -1,52 +1,56 @@
+// src/pages/ContactPage.jsx
 import React, { useState, useRef } from 'react';
-import { FaEnvelope, FaWhatsapp, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
+import {FaEnvelope, FaWhatsapp, FaPhoneAlt, FaMapMarkerAlt} from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import PageHeaderLogo from '../pages/PageHeaderLogo.jsx';
 import './ContactPage.css';
-import {Helmet} from "react-helmet-async";
 
 const ContactPage = () => {
+    // --- DATI DI CONTATTO REALI ---
     const emailAddress = 'info@codened.it';
     const whatsappNumber = '+393505872341';
     const phoneNumber = '+393505872341';
-    const locationText = 'Malo (VI), Italia';
-    // -------------------------------
 
+
+    // --- DATI EMAILJS ---
     const emailJsServiceId = 'service_93qq61s';
     const emailJsTemplateId = 'template_9wwjnuo';
     const emailJsPublicKey = 'NTMaBo_cwsSVp9sSb';
-    // ----------------------------------------------------
+    // --------------------
 
+    // Link calcolati
     const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}`;
     const phoneLink = `tel:${phoneNumber.replace(/\s/g, '')}`;
 
+    const locationText = 'Malo (VI), Italia';
+
+
+    // Riferimento al form per EmailJS
     const form = useRef();
 
+    // Stato per i campi del form
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    // Stato per feedback invio form
     const [formStatus, setFormStatus] = useState({ submitted: false, error: false, message: '' });
 
+    // Gestore cambiamento input
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevData => ({ ...prevData, [name]: value }));
     };
 
+    // Gestore invio form
     const handleSubmit = (e) => {
-        e.preventDefault(); // Previeni comportamento default
-        setFormStatus({ submitted: false, error: false, message: 'Invio in corso...' }); // Stato invio
+        e.preventDefault();
+        setFormStatus({ submitted: false, error: false, message: 'Invio in corso...' });
 
-        emailjs.sendForm(
-            emailJsServiceId,
-            emailJsTemplateId,
-            form.current, // Riferimento al form
-            emailJsPublicKey
-        )
+        emailjs.sendForm(emailJsServiceId, emailJsTemplateId, form.current, emailJsPublicKey)
             .then(
                 (result) => {
                     console.log('EmailJS SUCCESS!', result.status, result.text);
                     setFormStatus({ submitted: true, error: false, message: 'Messaggio inviato con successo! Ti risponderò il prima possibile.' });
                     setFormData({ name: '', email: '', message: '' });
-
-                    // setTimeout(() => setFormStatus({ submitted: false, error: false, message: '' }), 6000);
                 },
                 (error) => {
                     console.error('EmailJS FAILED...', error);
@@ -56,13 +60,14 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="contact-page-container container">
-
+        <div className="contact-page-container container"> {/* Container + padding pagina */}
             <Helmet>
                 <title>Contatti - CodeNed | Richiedi Info o Preventivo</title>
-                <meta name="description" content="Contatta CodeNed per informazioni, preventivi gratuiti o per discutere il tuo progetto web o di marketing. Email, telefono, WhatsApp o form online. Malo (Vicenza)." />
+                <meta name="description"
+                      content="Contatta CodeNed per informazioni, preventivi gratuiti o per discutere il tuo progetto web o di marketing. Email, telefono, WhatsApp o form online. Malo (Vicenza)."/>
             </Helmet>
-            <PageHeaderLogo />
+
+            <PageHeaderLogo/> {/* Logo/Icona Pagina */}
 
             <h2 className="contact-page-title">Mettiti in Contatto</h2>
             <p className="contact-page-intro">
@@ -70,26 +75,26 @@ const ContactPage = () => {
                 sottostanti o compilando il form.
             </p>
 
-            <div className="contact-info-section">
-                <a href={phoneLink} className="contact-item" title="Chiamami">
-                    <FaPhoneAlt className="contact-icon" />
-                    <span className="contact-text">{phoneNumber}</span>
+            {/* --- BARRA ICONE CONTATTO CENTRATE --- */}
+            <div className="contact-icon-bar">
+                <a href={phoneLink} className="contact-icon-link" title={`Chiama ${phoneNumber}`}>
+                    <FaPhoneAlt/>
                 </a>
-                <a href={`mailto:${emailAddress}`} className="contact-item" title="Inviami un'email">
-                    <FaEnvelope className="contact-icon" />
-                    <span className="contact-text">{emailAddress}</span>
+                <a href={`mailto:${emailAddress}`} className="contact-icon-link" title={`Email ${emailAddress}`}>
+                    <FaEnvelope/>
                 </a>
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="contact-item"
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="contact-icon-link"
                    title="Chatta su WhatsApp">
-                    <FaWhatsapp className="contact-icon" />
-                    <span className="contact-text">WhatsApp</span>
+                    <FaWhatsapp/>
                 </a>
-                <div className="contact-item">
-                    <FaMapMarkerAlt className="contact-icon" />
-                    <span className="contact-text">{locationText}</span>
-                </div>
+            </div>
+            {/* ==================================== */}
+            <div className="location-info">
+                <FaMapMarkerAlt className="location-icon"/>
+                <span className="location-text">{locationText}</span>
             </div>
 
+            {/* --- Form di Contatto --- */}
             <div className="contact-form-section">
                 <h3>Oppure invia un messaggio diretto:</h3>
                 <form ref={form} onSubmit={handleSubmit} className="contact-form">
@@ -98,7 +103,7 @@ const ContactPage = () => {
                         <input
                             type="text"
                             id="name"
-                            name="name"
+                            name="name" // Per EmailJS Template
                             value={formData.name}
                             onChange={handleChange}
                             required
@@ -110,7 +115,7 @@ const ContactPage = () => {
                         <input
                             type="email"
                             id="email"
-                            name="email"
+                            name="email" // Per EmailJS Template
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -121,7 +126,7 @@ const ContactPage = () => {
                         <label htmlFor="message">Messaggio:</label>
                         <textarea
                             id="message"
-                            name="message"
+                            name="message" // Per EmailJS Template
                             rows="6"
                             value={formData.message}
                             onChange={handleChange}
@@ -130,12 +135,14 @@ const ContactPage = () => {
                         ></textarea>
                     </div>
 
+                    {/* Messaggio di stato */}
                     {formStatus.message && (
                         <p className={`form-status ${formStatus.error ? 'error' : 'success'}`}>
                             {formStatus.message}
                         </p>
                     )}
 
+                    {/* Bottone Submit */}
                     <button
                         type="submit"
                         className="submit-button"
