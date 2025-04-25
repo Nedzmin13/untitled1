@@ -1,0 +1,132 @@
+
+.site-footer {
+    background-color: var(--dark-bg-secondary);
+    color: var(--text-color-secondary);
+    padding: 25px 0;
+    border-top: 1px solid rgba(0, 242, 255, 0.1);
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+.footer-left {
+    text-align: left;
+    flex-grow: 1;
+    flex-basis: 200px;
+}
+.footer-logo { font-size: 1.5rem; }
+.footer-piva { /* ... */ }
+
+
+.footer-center {
+    text-align: center;
+    flex-grow: 2;
+    flex-basis: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-policy-links { /* ... */ }
+.footer-link {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.8rem;
+}
+.footer-link:hover {
+    color: var(--primary-neon);
+}
+
+.footer-link-separator {
+    color: rgba(255, 255, 255, 0.2);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.footer-copyright { /* ... */ }
+.footer-credit { /* ... */ }
+.footer-credit-link { /* ... */ }
+.footer-credit-link:hover { /* ... */ }
+
+
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1;
+    flex-basis: 150px;
+}
+.footer-contact-link { font-size: 2rem; }
+.footer-contact-link:hover { /* ... */ }
+
+
+/* --- Media Queries per Footer --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        flex-basis: auto;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        flex-grow: 0;
+    }
+
+    .footer-right { order: 1; }
+    .footer-center { order: 2; }
+
+    .footer-link-separator { display: none; }
+    .footer-policy-links { margin-bottom: 5px; }
+    .footer-policy-links a { margin: 0 8px; display: inline }
+    .footer-copyright { margin-bottom: 5px; }
+
+    .footer-right {
+        gap: 25px;
+
+    }
+    .footer-contact-link { font-size: 1.4rem; }
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+
+        padding: 20px 0;
+        font-size: 0.8rem;
+    }
+    .footer-container {
+
+        gap: 15px;
+
+    }
+    .footer-right {
+        gap: 20px;
+    }
+    .footer-contact-link {
+        font-size: 1.3rem;
+    }
+}

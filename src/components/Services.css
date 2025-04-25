@@ -1,0 +1,89 @@
+
+.services-section {
+    padding: 80px 0;
+    /* background-color: transparent; */
+    /* position: relative; */
+    /* overflow: hidden; */
+    /* z-index: 2; */
+}
+
+/*  ::before */
+/* .services-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(...);
+  background-size: 400% 400%;
+  animation: gradientFlow 25s ease infinite;
+} */
+
+/* @keyframes */
+/* @keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} */
+
+
+.services-title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--primary-neon);
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--primary-neon-glow);
+    /* position: relative; */
+    /* z-index: 1; */
+}
+
+.services-subtitle {
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--text-color-secondary);
+    margin-bottom: 50px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    /* position: relative; */
+    /* z-index: 1; */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    /* position: relative; */
+    /* z-index: 1; */
+}
+
+/* --- Media Queries per Servizi (rimangono invariate) --- */
+@media (max-width: 768px) {
+    .services-section {
+        padding: 60px 0;
+    }
+    .services-subtitle {
+        margin-bottom: 40px;
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-section {
+        padding: 50px 0;
+    }
+    .services-subtitle {
+        margin-bottom: 30px;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

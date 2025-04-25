@@ -1,0 +1,94 @@
+
+.legal-page-container {
+    padding-top: calc(var(--navbar-height) + 60px);
+    padding-bottom: 80px;
+    width: 100%;
+    min-height: calc(100vh - var(--navbar-height) - 80px);
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color-secondary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.legal-page-title {
+    text-align: center;
+    color: var(--primary-neon);
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.last-updated {
+    text-align: center;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-bottom: 40px;
+    color: rgba(224, 224, 224, 0.5);
+}
+
+.legal-page-container h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+    padding-bottom: 8px;
+}
+
+.legal-page-container h4 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+
+.legal-page-container p {
+    margin-bottom: 15px;
+}
+
+.legal-page-container ul {
+    list-style: disc;
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+.legal-page-container li {
+    margin-bottom: 8px;
+}
+
+.legal-page-container a {
+    color: var(--primary-neon);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+.legal-page-container a:hover {
+    color: #ffffff;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .legal-page-container {
+        padding-top: calc(var(--navbar-height) + 40px);
+        padding-bottom: 60px;
+    }
+    .last-updated { margin-bottom: 30px; }
+    .legal-page-container h3 { font-size: 1.2rem; }
+    .legal-page-container h4 { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+    .legal-page-container {
+        padding-top: calc(var(--navbar-height) + 30px);
+        padding-bottom: 50px;
+        font-size: 0.9rem;
+    }
+    .legal-page-title { font-size: clamp(1.6rem, 5vw, 2rem); }
+    .last-updated { margin-bottom: 25px; }
+    .legal-page-container h3 { font-size: 1.1rem; }
+}

@@ -1,0 +1,109 @@
+
+.pricing-page-container {
+    padding-top: calc(var(--navbar-height) + 60px);
+    padding-bottom: 80px;
+    width: 100%;
+    min-height: calc(100vh - var(--navbar-height) - 80px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-page-title {
+    text-align: center;
+    color: var(--primary-neon);
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--primary-neon-glow);
+}
+
+.pricing-page-intro {
+    text-align: center;
+    color: var(--text-color-secondary);
+    font-size: clamp(1rem, 2.8vw, 1.15rem);
+    max-width: 750px;
+    margin: 0 auto 60px auto;
+    line-height: 1.7;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 70px; /* Spazio prima del CTA */
+}
+
+
+
+
+.pricing-category-section {
+    margin-bottom: 60px;
+}
+
+.pricing-category-title {
+    text-align: center;
+    font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+    color: var(--text-color); /
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.pricing-category-subtitle {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.pricing-plan-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    align-items: stretch;
+}
+
+
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .pricing-category-section { margin-bottom: 50px; }
+    .pricing-category-subtitle { margin-bottom: 30px; }
+    .pricing-plan-row { gap: 20px; }
+}
+
+@media (max-width: 600px) {
+    .pricing-plan-row {
+        /* grid-template-columns: 1fr; */
+        /* Oppure riduci ancora minmax */
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+
+@media (max-width: 480px) {
+    .pricing-category-section { margin-bottom: 40px; }
+    .pricing-category-subtitle { margin-bottom: 25px; }
+    .pricing-plan-row { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .pricing-page-container {
+        padding-top: calc(var(--navbar-height) + 40px);
+        padding-bottom: 60px;
+    }
+    .pricing-page-intro { margin-bottom: 40px; }
+    .pricing-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }
+}
+
+@media (max-width: 480px) {
+    .pricing-page-container {
+        padding-top: calc(var(--navbar-height) + 30px);
+        padding-bottom: 50px;
+    }
+    .pricing-page-intro { margin-bottom: 30px; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
+}

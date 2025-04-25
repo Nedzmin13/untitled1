@@ -1,0 +1,177 @@
+
+.navbar {
+    background-color: transparent;
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    border: none;
+    box-shadow: none;
+}
+
+.navbar.scrolled {
+    background-color: rgba(10, 10, 26, 0.85); /* Sfondo scuro semi-trasparente */
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Occupa tutta la larghezza del .container genitore */
+}
+
+.navbar-logo {
+    color: var(--primary-neon);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-shadow: 0 0 5px var(--primary-neon-glow);
+    z-index: 1010; /* Sopra il menu mobile quando aperto */
+}
+
+/* --- Menu Desktop --- */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar-menu li {
+    margin-left: 30px;
+}
+
+.navbar-menu a {
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+
+
+.navbar-menu a:hover,
+.navbar-menu a.active { /* Per futuro scroll spy */
+    color: var(--primary-neon);
+}
+
+.navbar-menu a:hover::after {
+    width: 100%;
+}
+
+
+.navbar-menu a,
+.navbar-menu .nav-link-active
+{
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+    text-decoration: none; /* Aggiungi per NavLink */
+}
+
+.navbar-menu .nav-link-active {
+    color: var(--primary-neon) !important;
+
+}
+
+.navbar-menu a:hover,
+.navbar-menu .nav-link-active:hover
+{
+    color: var(--primary-neon);
+}
+
+
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--primary-neon);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1010;
+    transition: color 0.3s ease;
+}
+.navbar-toggle:hover {
+    color: #ffffff;
+}
+
+.navbar-logo-link {
+    display: inline-block;
+    line-height: 0;
+}
+
+.navbar-logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+/* --- Media Query per Tablet e Smartphone --- */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        opacity: 0;
+        transition: left 0.5s ease, opacity 0.5s ease;
+        background-color: var(--dark-bg);
+        padding-top: calc(var(--navbar-height) + 40px);
+        z-index: 1005;
+    }
+
+    .navbar-menu.active {
+        left: 0;
+        opacity: 1;
+    }
+
+    /* Stili per i link nel menu mobile */
+    .navbar-menu li {
+        margin: 18px 0;
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .navbar-menu.active li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .navbar-menu a {
+        font-size: 1.1rem;
+        padding: 10px 0;
+    }
+    .navbar-menu a::after {
+        bottom: -8px;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+}

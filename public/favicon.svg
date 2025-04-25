@@ -1,0 +1,32 @@
+<svg width="150" height="60" viewBox="0 0 150 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>CodeNed Logo</title>
+  <!-- Left Bracket Shape -->
+  <path d="M40 5 L10 30 L40 55" stroke="#222222" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Right Bracket Shape -->
+  <path d="M110 5 L140 30 L110 55" stroke="#222222" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Internal lines Left -->
+  <g opacity="0.8">
+    <line x1="35" y1="15" x2="20" y2="30" stroke="#DDDDDD" stroke-width="1.5"/>
+    <line x1="35" y1="20" x2="20" y2="35" stroke="#DDDDDD" stroke-width="1.5"/>
+    <line x1="35" y1="25" x2="20" y2="40" stroke="#DDDDDD" stroke-width="1.5"/>
+     <line x1="35" y1="30" x2="20" y2="45" stroke="#DDDDDD" stroke-width="1.5"/>
+     <line x1="35" y1="35" x2="20" y2="50" stroke="#DDDDDD" stroke-width="1.5"/>
+  </g>
+
+   <!-- Internal lines Right -->
+   <g opacity="0.8">
+      <line x1="115" y1="15" x2="130" y2="30" stroke="#DDDDDD" stroke-width="1.5"/>
+      <line x1="115" y1="20" x2="130" y2="35" stroke="#DDDDDD" stroke-width="1.5"/>
+      <line x1="115" y1="25" x2="130" y2="40" stroke="#DDDDDD" stroke-width="1.5"/>
+      <line x1="115" y1="30" x2="130" y2="45" stroke="#DDDDDD" stroke-width="1.5"/>
+      <line x1="115" y1="35" x2="130" y2="50" stroke="#DDDDDD" stroke-width="1.5"/>
+   </g>
+
+  <!-- Central Bar (Rotated Rectangle) -->
+  <rect x="65" y="-5" width="10" height="70" fill="#CCCCCC" stroke="#AAAAAA" stroke-width="0.5" transform="rotate(15 75 30)"/>
+
+  <!-- Letters C and N -->
+  <text x="45" y="40" font-family="Orbitron, sans-serif" font-size="24" font-weight="bold" fill="#222222">C</text>
+  <text x="88" y="40" font-family="Orbitron, sans-serif" font-size="24" font-weight="bold" fill="#222222">N</text>
+</svg>
