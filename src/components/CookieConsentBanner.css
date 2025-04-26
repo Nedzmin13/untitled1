@@ -1,0 +1,90 @@
+/* src/components/CookieConsentBanner.css */
+
+.cookie-consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(16, 16, 40, 0.95); /* Sfondo scuro semi-trasparente */
+    backdrop-filter: blur(3px);
+    color: var(--text-color-secondary);
+    padding: 15px 20px;
+    z-index: 1050; /* Sopra la maggior parte degli elementi, ma sotto eventuali modali? */
+    display: flex;
+    flex-direction: column; /* Impila su mobile */
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(0, 242, 255, 0.1);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.cookie-content {
+    text-align: center; /* Centra testo su mobile */
+}
+
+.cookie-content p {
+    margin: 0;
+}
+
+.cookie-content a {
+    color: var(--primary-neon);
+    text-decoration: underline;
+}
+.cookie-content a:hover {
+    color: #ffffff;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 15px; /* Spazio tra bottoni */
+    flex-shrink: 0; /* Non far restringere i bottoni */
+}
+
+.cookie-button {
+    padding: 8px 18px;
+    border-radius: 5px;
+    border: 1px solid var(--text-color-secondary);
+    background-color: transparent;
+    color: var(--text-color-secondary);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.cookie-button.accept {
+    background-color: var(--primary-neon);
+    border-color: var(--primary-neon);
+    color: var(--dark-bg);
+}
+
+.cookie-button:hover {
+    opacity: 0.85;
+}
+.cookie-button.accept:hover {
+    background-color: #33ffff; /* Neon più chiaro */
+    border-color: #33ffff;
+    opacity: 1;
+}
+.cookie-button.decline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Layout per schermi più larghi */
+@media (min-width: 769px) {
+    .cookie-consent-banner {
+        flex-direction: row; /* Affianca contenuto e bottoni */
+        text-align: left;
+        padding: 20px 30px;
+    }
+    .cookie-content {
+        text-align: left;
+        margin-right: 20px; /* Spazio tra testo e bottoni */
+    }
+}
