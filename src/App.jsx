@@ -12,6 +12,7 @@ import ContactPage from "./pages/ContactPage.jsx";
 import Footer from "./components/Footer.jsx";
 import CookiePolicyPage from "./pages/CookiePolicyPage.jsx";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
+import CookieConsentBanner from "./components/CookieConsentBanner.jsx";
 
 function App() {
     return (
@@ -33,6 +34,8 @@ function App() {
                     </Routes>
                 </main>
                 <Footer />
+                <CookieConsentBanner />
+
             </>
         </Router>
     );
