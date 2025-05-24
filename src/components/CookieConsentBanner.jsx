@@ -1,31 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './CookieConsentBanner.css'; // Creeremo questo CSS
+import './CookieConsentBanner.css'; 
 
 // Funzione per caricare lo script di Google Analytics (da chiamare DOPO il consenso)
 const loadGAScript = () => {
     const gaMeasurementId = 'G-1GSGQEX7N1'; // ID Corretto
 
-    // Il controllo precedente è stato rimosso/modificato perché causava l'uscita prematura.
-    // Se l'ID fosse un placeholder generico o vuoto, qui potremmo inserire un controllo:
+
     if (gaMeasurementId === 'G-XXXXXXXXXX' || !gaMeasurementId || gaMeasurementId.trim() === '') {
         console.error('ERRORE CRITICO: Google Analytics Measurement ID non configurato correttamente nel banner!');
         return;
     }
 
-    // Controlla se lo script è già stato caricato
     if (document.getElementById('ga-gtag-script')) {
         console.log('GA script già caricato (dal banner).');
-        // Se è già caricato, potresti voler assicurarti che sia configurato correttamente,
-        // ma per ora, assumiamo che se esiste, è perché lo abbiamo caricato noi prima.
-        // O se è stato caricato da index.html, questo banner non dovrebbe provare a ricaricarlo.
-        // Questo dipende da DOVE vuoi che GA sia caricato.
+
         return;
     }
 
     console.log(`Caricamento script GA4 con ID: ${gaMeasurementId} dal banner...`);
     const script1 = document.createElement('script');
-    script1.id = 'ga-gtag-script'; // Aggiungi ID per controllo
+    script1.id = 'ga-gtag-script';
     script1.src = `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`;
     script1.async = true;
     document.head.appendChild(script1);
