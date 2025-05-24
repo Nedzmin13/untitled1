@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './CookieConsentBanner.css'; 
+import './CookieConsentBanner.css';
 
 // Funzione per caricare lo script di Google Analytics (da chiamare DOPO il consenso)
 const loadGAScript = () => {
