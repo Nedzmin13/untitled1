@@ -1,4 +1,3 @@
-/* src/components/CookieConsentBanner.css */
 
 .cookie-consent-banner {
     position: fixed;
@@ -9,7 +8,7 @@
     backdrop-filter: blur(3px);
     color: var(--text-color-secondary);
     padding: 15px 20px;
-    z-index: 1050; /* Sopra la maggior parte degli elementi, ma sotto eventuali modali? */
+    z-index: 1050;
     display: flex;
     flex-direction: column; /* Impila su mobile */
     justify-content: space-between;
@@ -22,7 +21,7 @@
 }
 
 .cookie-content {
-    text-align: center; /* Centra testo su mobile */
+    text-align: center;
 }
 
 .cookie-content p {
@@ -40,7 +39,7 @@
 .cookie-actions {
     display: flex;
     gap: 15px; /* Spazio tra bottoni */
-    flex-shrink: 0; /* Non far restringere i bottoni */
+    flex-shrink: 0;
 }
 
 .cookie-button {
@@ -66,7 +65,7 @@
     opacity: 0.85;
 }
 .cookie-button.accept:hover {
-    background-color: #33ffff; /* Neon più chiaro */
+    background-color: #33ffff;
     border-color: #33ffff;
     opacity: 1;
 }
@@ -79,12 +78,12 @@
 /* Layout per schermi più larghi */
 @media (min-width: 769px) {
     .cookie-consent-banner {
-        flex-direction: row; /* Affianca contenuto e bottoni */
+        flex-direction: row;
         text-align: left;
         padding: 20px 30px;
     }
     .cookie-content {
         text-align: left;
-        margin-right: 20px; /* Spazio tra testo e bottoni */
+        margin-right: 20px;
     }
 }

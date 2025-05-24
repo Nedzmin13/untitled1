@@ -1,23 +1,29 @@
-// src/components/CookieConsentBanner.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './CookieConsentBanner.css'; // Creeremo questo CSS
 
 // Funzione per caricare lo script di Google Analytics (da chiamare DOPO il consenso)
 const loadGAScript = () => {
-    const gaMeasurementId = 'G-1GSGQEX7N1'; // <-- SOSTITUISCI CON IL TUO ID MISURAZIONE GA4
-    if (!gaMeasurementId || gaMeasurementId === 'G-1GSGQEX7N1') {
-        console.warn('Google Analytics Measurement ID non impostato.');
+    const gaMeasurementId = 'G-1GSGQEX7N1'; // ID Corretto
+
+    // Il controllo precedente è stato rimosso/modificato perché causava l'uscita prematura.
+    // Se l'ID fosse un placeholder generico o vuoto, qui potremmo inserire un controllo:
+    if (gaMeasurementId === 'G-XXXXXXXXXX' || !gaMeasurementId || gaMeasurementId.trim() === '') {
+        console.error('ERRORE CRITICO: Google Analytics Measurement ID non configurato correttamente nel banner!');
         return;
     }
 
     // Controlla se lo script è già stato caricato
     if (document.getElementById('ga-gtag-script')) {
-        console.log('GA script già caricato.');
+        console.log('GA script già caricato (dal banner).');
+        // Se è già caricato, potresti voler assicurarti che sia configurato correttamente,
+        // ma per ora, assumiamo che se esiste, è perché lo abbiamo caricato noi prima.
+        // O se è stato caricato da index.html, questo banner non dovrebbe provare a ricaricarlo.
+        // Questo dipende da DOVE vuoi che GA sia caricato.
         return;
     }
 
-    console.log('Caricamento script GA4...');
+    console.log(`Caricamento script GA4 con ID: ${gaMeasurementId} dal banner...`);
     const script1 = document.createElement('script');
     script1.id = 'ga-gtag-script'; // Aggiungi ID per controllo
     script1.src = `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`;
@@ -31,25 +37,22 @@ const loadGAScript = () => {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', '${gaMeasurementId}');
+    console.log('GA configurato dal banner.');
   `;
     document.head.appendChild(script2);
 };
 
-// Funzione per rimuovere gli script di Google Analytics (se l'utente rifiuta DOPO aver accettato)
-// Nota: Rimuovere lo script non rimuove i cookie già impostati da GA in quella sessione.
-// Una soluzione completa richiederebbe la gestione attiva dei cookie.
 const removeGAScript = () => {
     console.log('Rimozione script GA4 (se presenti)...');
     const script1 = document.getElementById('ga-gtag-script');
     const script2 = document.getElementById('ga-config-script');
     if (script1) script1.remove();
     if (script2) script2.remove();
-    // Qui potresti aggiungere logica per cancellare i cookie _ga* se necessario
 }
 
 const CookieConsentBanner = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [consentGiven, setConsentGiven] = useState(null); // null = non scelto, true = accettato, false = rifiutato
+    const [consentGiven, setConsentGiven] = useState(null);
 
     useEffect(() => {
         const consentStatus = localStorage.getItem('cookie_consent_status');
@@ -58,16 +61,14 @@ const CookieConsentBanner = () => {
             setIsVisible(true);
             setConsentGiven(null);
         } else {
-            // Scelta già fatta in passato
             const accepted = consentStatus === 'accepted';
             setConsentGiven(accepted);
             setIsVisible(false);
             if (accepted) {
-                // Se aveva accettato, carica GA
                 loadGAScript();
             }
         }
-    }, []); // Esegui solo al mount
+    }, []);
 
     const handleAccept = () => {
         localStorage.setItem('cookie_consent_status', 'accepted');
@@ -80,15 +81,12 @@ const CookieConsentBanner = () => {
         localStorage.setItem('cookie_consent_status', 'declined');
         setConsentGiven(false);
         setIsVisible(false);
-        removeGAScript(); // Prova a rimuovere GA se era stato caricato
-        // Qui potresti aggiungere logica per cancellare cookie GA esistenti se necessario
+        removeGAScript();
     };
 
-    // Non mostrare nulla se la scelta è già stata fatta e salvata
     if (!isVisible && consentGiven !== null) {
         return null;
     }
-    // Se non è visibile e non c'è scelta (raro, durante caricamento iniziale), non mostrare
     if (!isVisible) {
         return null;
     }

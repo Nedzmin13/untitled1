@@ -5,7 +5,7 @@ import './PortfolioPage.css';
 
 
 import {BsCodeSlash} from "react-icons/bs";
-import PageHeaderLogo from "./PageHeaderLogo.jsx"; // Immagine di fallback
+import PageHeaderLogo from "./PageHeaderLogo.jsx";
 import progetto1 from '../assets/portfolio/pr1.jpg';
 import progettoAppPreventivi from '../assets/portfolio/appPreventivi.jpg';
 import progetto2 from '../assets/portfolio/pr2.jpg';
@@ -103,14 +103,15 @@ const PortfolioPage = () => {
 
             <Helmet>
                 <title>Portfolio Lavori - CodeNed | Sviluppo Web & App</title>
-                <meta name="description" content="Scopri i progetti web e le applicazioni realizzate da CodeNed: siti vetrina, e-commerce, dashboard, esperimenti 3D. Vicenza e Veneto." />
+                <meta name="description"
+                      content="Scopri i progetti web e le applicazioni realizzate da CodeNed: siti vetrina, e-commerce, dashboard, software desktop. Vicenza e Veneto."/>
             </Helmet>
 
-                <PageHeaderLogo/>
+            <PageHeaderLogo/>
 
             <h2 className="portfolio-title">Il Mio Portfolio</h2>
             <p className="portfolio-intro">
-                Una selezione dei progetti a cui ho lavorato, dimostrando competenze nello sviluppo web e nel design.
+            Una selezione dei progetti a cui ho lavorato, dimostrando competenze nello sviluppo web e nel design.
             </p>
 
             <div className="portfolio-grid">
