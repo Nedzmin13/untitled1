@@ -10,9 +10,9 @@ const MarketingPricingPage = () => {
             id: 'mkt-social-org',
             title: 'Facebook & Instagram Marketing – Organico',
             options: [
-                { name: 'Base', price: '60€ / mese', features: ['10 Post al mese', 'Pianificazione Editoriale', 'Creazione Grafiche Base', 'Report Mensile'] },
-                { name: 'Intermedio', price: '100€ / mese', features: ['20 Post al mese','Pianificazione Avanzata', 'Grafiche/Video Brevi', 'Interazione Community', 'Report Mensile'] },
-                { name: 'Avanzato', price: '300€ / mese', features: ['Post Illimitati','Strategia Contenuti Completa', 'Format Diversificati', 'Analisi Performance Approfondita', 'Report Dettagliato'] },
+                { name: 'Base', price: '70€ / mese', features: ['10 Post al mese', 'Pianificazione Editoriale', 'Creazione Grafiche Base', 'Report Mensile'] },
+                { name: 'Intermedio', price: '120€ / mese', features: ['20 Post al mese','Pianificazione Avanzata', 'Grafiche/Video Brevi', 'Interazione Community', 'Report Mensile'] },
+                { name: 'Avanzato', price: '500€ / mese', features: ['Post Illimitati','Strategia Contenuti Completa', 'Format Diversificati', 'Analisi Performance Approfondita', 'Report Dettagliato'] },
             ],
         },
         {
