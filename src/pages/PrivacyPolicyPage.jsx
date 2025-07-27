@@ -1,6 +1,8 @@
+// src/pages/PrivacyPolicyPage.jsx
 import React from 'react';
+import { Link } from 'react-router-dom'; // Usa Link per coerenza
+import { Helmet } from 'react-helmet-async';
 import './LegalPages.css';
-import {Helmet} from "react-helmet-async";
 import PageHeaderLogo from "./PageHeaderLogo.jsx";
 
 const PrivacyPolicyPage = () => {
@@ -14,7 +16,7 @@ const PrivacyPolicyPage = () => {
 
             <PageHeaderLogo />
             <h2 className="legal-page-title">Privacy Policy</h2>
-            <p className="last-updated">Ultimo aggiornamento: 30 Aprile 2025</p>
+            <p className="last-updated">Ultimo aggiornamento: 27 Luglio 2025</p>
 
             <p>
                 La presente Privacy Policy descrive le modalità di gestione del sito web <strong>codened.it</strong> (di seguito "Sito") in riferimento al trattamento dei dati personali degli utenti che lo consultano. Questa informativa è resa ai sensi del Regolamento UE 2016/679 (GDPR).
