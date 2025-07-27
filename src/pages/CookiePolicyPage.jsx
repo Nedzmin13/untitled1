@@ -1,9 +1,8 @@
 // src/pages/CookiePolicyPage.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import PageHeaderLogo from '../components/PageHeaderLogo.jsx';
-import './LegalPages.css';
+import '../pages/LegalPages.css';
+import PageHeaderLogo from "./PageHeaderLogo.jsx";
 
 const CookiePolicyPage = () => {
     return (
@@ -16,7 +15,7 @@ const CookiePolicyPage = () => {
 
             <PageHeaderLogo />
             <h2 className="legal-page-title">Cookie Policy</h2>
-            <p className="last-updated">Ultimo aggiornamento: 27 Luglio 2025</p>
+            <p className="last-updated">Ultimo aggiornamento: 30 Aprile 2025</p>
 
             <h3>Cosa sono i Cookie</h3>
             <p>
